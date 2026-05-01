@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="hellofx.controllers.HomeController"
+        prefWidth="1000"
+        prefHeight="600"
+        style="-fx-background-color:#0B1E33;">
+
+        <left>
+                <VBox spacing="15"
+                        prefWidth="220"
+                        style="-fx-background-color:#081625; -fx-padding:30;">
+
+                        <Label text="QCU"
+                                style="-fx-text-fill:gold; -fx-font-size:28px; -fx-font-weight:bold;" />
+
+                        <Label text="Lost &amp; Found"
+                                style="-fx-text-fill:white; -fx-font-size:16px;" />
+
+                        <Separator />
+                        <Button text="Home"
+                                onAction="#goHome"
+                                style="-fx-background-color:transparent; -fx-text-fill:white;" />
+
+                        <Button text="Report Item"
+                                onAction="#goToReport"
+                                style="-fx-background-color:transparent; -fx-text-fill:white;" />
+
+                        <Button text="View Items"
+                                onAction="#goToView"
+                                style="-fx-background-color:transparent; -fx-text-fill:white;" />
+
+                        <Button text="Notifications"
+                                onAction="#goToNotifications"
+                                style="-fx-background-color:transparent; -fx-text-fill:white;" />
+
+                        <Button fx:id="pendingButton"
+                                text="Pending Items"
+                                onAction="#goToPending"
+                                style="-fx-background-color: transparent; -fx-text-fill: white;" />
+
+                </VBox>
+        </left>
+
+        <center>
+                <StackPane fx:id="contentArea">
+
+                        <VBox alignment="CENTER" spacing="20">
+
+                                <Label text="Welcome to QCU Lost and Found"
+                                        style="-fx-text-fill:gold; -fx-font-size:30px; -fx-font-weight:bold;" />
+
+                                <Label text="Report or search for lost items easily."
+                                        style="-fx-text-fill:white; -fx-font-size:16px;" />
+
+                        </VBox>
+
+                </StackPane>
+        </center>
+
+</BorderPane>

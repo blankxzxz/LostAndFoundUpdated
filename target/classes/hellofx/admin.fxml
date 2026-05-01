@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hellofx.controllers.AdminController"
+      alignment="TOP_CENTER"
+      spacing="20"
+      style="-fx-background-color:#0B1E33; -fx-padding:40;">
+
+    <Label text="Items for Approval"
+           style="-fx-text-fill:gold; -fx-font-size:28px; -fx-font-weight:bold;" />
+
+    <TableView fx:id="pendingTable" prefWidth="700" prefHeight="420">
+
+        <columns>
+
+            <TableColumn fx:id="itemNameColumn"
+                         text="Item Name"
+                         prefWidth="150"/>
+
+            <TableColumn fx:id="foundByColumn"
+                         text="Found By"
+                         prefWidth="150"/>
+
+            <TableColumn fx:id="dateFoundColumn"
+                         text="Date Found"
+                         prefWidth="150"/>
+
+            <TableColumn fx:id="descriptionColumn"
+                         text="Description"
+                         prefWidth="250"/>
+
+        </columns>
+
+    </TableView>
+
+    <Button text="Approve Selected Item"
+            onAction="#approveSelectedItem"
+            style="-fx-background-color:gold; -fx-text-fill:black;" />
+
+</VBox>

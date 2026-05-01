@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hellofx.controllers.NotificationController"
+      alignment="CENTER_LEFT"
+      spacing="10"
+      prefWidth="260"
+      style="-fx-background-color:#1B2B45; -fx-background-radius:10;">
+
+    <padding>
+        <Insets top="10" bottom="10" left="15" right="15"/>
+    </padding>
+
+    <Label fx:id="notificationLabel"
+           text="Notification"
+           style="-fx-text-fill:white; -fx-font-size:14px;" />
+</HBox>

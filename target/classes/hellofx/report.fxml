@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hellofx.controllers.ReportController"
+      alignment="CENTER"
+      spacing="15"
+      style="-fx-background-color:#0B1E33; -fx-padding:40;">
+
+    <Label text="Report Lost Item"
+           style="-fx-text-fill:gold; -fx-font-size:28px; -fx-font-weight:bold;" />
+
+    <TextField fx:id="itemName"
+               promptText="Item Name"
+               prefWidth="350"/>
+
+    <TextField fx:id="foundBy"
+               promptText="Found By"
+               prefWidth="350"/>
+
+    <TextField fx:id="date"
+               promptText="Date Found"
+               prefWidth="350"/>
+
+    <TextArea fx:id="description"
+              promptText="Description"
+              prefWidth="350"
+              prefHeight="120"/>
+
+    <Button text="Submit"
+            onAction="#submitItem"
+            style="-fx-background-color:gold; -fx-text-fill:black;" />
+
+</VBox>
