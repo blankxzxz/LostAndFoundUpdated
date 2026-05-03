@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hellofx.controllers.AdminController"
+            prefWidth="1100"
+            prefHeight="680"
+            style="-fx-background-color: #F5EFE6;"
+            stylesheets="@admin.css">
+
+    <!-- ═══ TOP NAV BAR ═══ -->
+    <top>
+        <HBox alignment="CENTER"
+              style="-fx-background-color: #1B4F72; -fx-padding: 14 32 14 32;">
+
+            <!-- Left icons: home + bell -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="&#8962;"
+                       style="-fx-text-fill: #E8A020; -fx-font-size: 30px;"/>
+                <Label text="&#128276;"
+                       style="-fx-text-fill: #E8A020; -fx-font-size: 24px;"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Center brand -->
+            <HBox alignment="CENTER" spacing="16">
+                <Label text="ReclaimHub"
+                       style="-fx-text-fill: #E8A020; -fx-font-size: 34px; -fx-font-weight: bold; -fx-font-family: 'Georgia';"/>
+                <Label text="Digital Lost and Found system for Students"
+                       style="-fx-text-fill: #AEC6CF; -fx-font-size: 14px; -fx-font-style: italic;"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+
+    <!-- ═══ BODY ═══ -->
+    <center>
+        <VBox spacing="14"
+              style="-fx-background-color: #F5EFE6; -fx-padding: 28 40 20 40;">
+
+            <!-- ◄ Items for approval -->
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label text="&#9668;"
+                       style="-fx-text-fill: #1B4F72; -fx-font-size: 30px; -fx-font-weight: bold;"/>
+                <Label text="Items for approval"
+                       style="-fx-text-fill: #1B4F72; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- Sort buttons -->
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Button text="Sort by Name"
+                        onAction="#sortByName"
+                        style="-fx-background-color: #1B4F72; -fx-text-fill: #E8A020;
+                               -fx-font-size: 13px; -fx-font-style: italic; -fx-font-weight: bold;
+                               -fx-padding: 7 18 7 18; -fx-background-radius: 0; -fx-cursor: hand;"/>
+                <Button text="Sort by Found By"
+                        onAction="#sortByFoundBy"
+                        style="-fx-background-color: #1B4F72; -fx-text-fill: #E8A020;
+                               -fx-font-size: 13px; -fx-font-style: italic; -fx-font-weight: bold;
+                               -fx-padding: 7 18 7 18; -fx-background-radius: 0; -fx-cursor: hand;"/>
+                <Button text="Sort by Date"
+                        onAction="#sortByDate"
+                        style="-fx-background-color: #1B4F72; -fx-text-fill: #E8A020;
+                               -fx-font-size: 13px; -fx-font-style: italic; -fx-font-weight: bold;
+                               -fx-padding: 7 18 7 18; -fx-background-radius: 0; -fx-cursor: hand;"/>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="pendingTable"
+                       prefHeight="350"
+                       maxWidth="1020">
+                <columns>
+                    <TableColumn fx:id="itemNameColumn"
+                                 text="Item Name"
+                                 prefWidth="190"
+                                 sortable="true"/>
+                    <TableColumn fx:id="foundByColumn"
+                                 text="Found By"
+                                 prefWidth="170"
+                                 sortable="true"/>
+                    <TableColumn fx:id="dateFoundColumn"
+                                 text="Date Found"
+                                 prefWidth="170"
+                                 sortable="true"/>
+                    <TableColumn fx:id="descriptionColumn"
+                                 text="Description"
+                                 prefWidth="488"
+                                 sortable="false"/>
+                </columns>
+                <placeholder>
+                    <Label text="No pending items awaiting approval."
+                           style="-fx-text-fill: #1B4F72; -fx-font-size: 14px; -fx-font-style: italic;"/>
+                </placeholder>
+            </TableView>
+
+            <!-- Approve button: amber outline, centered, italic -->
+            <HBox alignment="CENTER">
+                <Button text="Approve Selected Items"
+                        onAction="#approveSelectedItem"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #1B4F72;
+                               -fx-font-size: 15px; -fx-font-style: italic; -fx-font-weight: bold;
+                               -fx-padding: 10 40 10 40;
+                               -fx-background-radius: 0;
+                               -fx-border-color: #E8A020;
+                               -fx-border-width: 2.5;
+                               -fx-border-radius: 0;
+                               -fx-cursor: hand;"/>
+            </HBox>
+
+            <!-- Admin Mode -->
+            <HBox alignment="CENTER">
+                <Label text="Admin Mode"
+                       style="-fx-text-fill: #E8A020; -fx-font-size: 14px; -fx-font-style: italic;"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

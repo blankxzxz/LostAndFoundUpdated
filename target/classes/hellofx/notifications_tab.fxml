@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hellofx.controllers.NotificationsPageController"
+      alignment="CENTER"
+      spacing="20"
+      style="-fx-background-color:#0B1E33; -fx-padding:40;">
+
+    <Label fx:id="titleLabel"
+           text="Notifications"
+           style="-fx-text-fill: gold; -fx-font-size:26px; -fx-font-weight:bold;" />
+
+    <ListView fx:id="notificationList"
+              prefWidth="500"
+              prefHeight="400"/>
+</VBox>

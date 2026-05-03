@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hellofx.controllers.NotificationsPageController"
+            prefWidth="1000" prefHeight="600"
+            style="-fx-background-color:#0B1E33;">
+
+    <center>
+
+        <VBox alignment="CENTER" spacing="20">
+
+            <Label text="Notifications"
+                   style="-fx-text-fill:gold; -fx-font-size:26px; -fx-font-weight:bold;"/>
+
+            <ListView fx:id="notificationList"
+                      prefWidth="500"
+                      prefHeight="400"/>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
