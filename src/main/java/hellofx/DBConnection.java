@@ -14,6 +14,7 @@ public class DBConnection {
     public static Connection getConnection() {
         try {
             System.out.println("DBConnection: Attempting to connect to database...");
+            
             System.out.println("DBConnection: URL: " + URL);
             System.out.println("DBConnection: USER: " + USER);
             Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);

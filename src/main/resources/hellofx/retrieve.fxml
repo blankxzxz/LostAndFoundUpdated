@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600" prefWidth="1000" style="-fx-background-color:#FAF0E6;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofx.controllers.RetrieveController">
+
+    <center>
+        <VBox fx:id="formArea" spacing="16" style="-fx-padding: 28 40 28 40;">
+
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Button onAction="#goHome" style="-fx-background-color: transparent; -fx-text-fill: #1A4A6B; -fx-font-size: 30px; -fx-cursor: hand; -fx-border-color: transparent;" text="&#9664;" />
+                <Label style="-fx-text-fill: #1A4A6B; -fx-font-size: 30px; -fx-font-weight: bold;" text="Retrieve Item" />
+            </HBox>
+
+            <Label style="-fx-text-fill: #1A4A6B; -fx-font-size: 13px; -fx-font-style: italic;" text="Please fill out the following:" />
+
+            <VBox spacing="14" style="-fx-background-color: #1A4A6B; -fx-background-radius: 8; -fx-padding: 24;">
+
+                <GridPane hgap="12" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                    </columnConstraints>
+
+                    <TextField fx:id="itemName" promptText="Item Name:" style="-fx-background-color: #1A4A6B; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-radius: 4; -fx-background-radius: 4; -fx-font-size: 13px; -fx-padding: 8;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="claimantName" promptText="Claimant Name:" style="-fx-background-color: #1A4A6B; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-radius: 4; -fx-background-radius: 4; -fx-font-size: 13px; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <TextField fx:id="claimantEmail" promptText="Claimant's Email Address:" style="-fx-background-color: #1A4A6B; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-radius: 4; -fx-background-radius: 4; -fx-font-size: 13px; -fx-padding: 8;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="dateLost" promptText="Date Lost:" style="-fx-background-color: #1A4A6B; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-radius: 4; -fx-background-radius: 4; -fx-font-size: 13px; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <TextField fx:id="ownershipProof" promptText="Description of Ownership Proof:" style="-fx-background-color: #1A4A6B; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-radius: 4; -fx-background-radius: 4; -fx-font-size: 13px; -fx-padding: 8;" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" />
+
+                    <TextField fx:id="attachFile" promptText="Attach file as proof (optional) :" style="-fx-background-color: #1A4A6B; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-radius: 4; -fx-background-radius: 4; -fx-font-size: 13px; -fx-padding: 8;" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2" />
+                </GridPane>
+
+                <HBox alignment="CENTER">
+                    <Button onAction="#submitRequest" prefHeight="38" prefWidth="160" style="-fx-background-color: #FAF0E6; -fx-text-fill: #1A4A6B; -fx-font-size: 13px; -fx-font-weight: bold; -fx-cursor: hand; -fx-border-color: #E8A020; -fx-border-width: 2; -fx-background-radius: 4; -fx-border-radius: 4;" text="Submit Request" />
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

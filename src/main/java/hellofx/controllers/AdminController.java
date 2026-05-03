@@ -6,10 +6,15 @@ import hellofx.NotificationManager;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -33,15 +38,14 @@ public class AdminController {
             dateFoundColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
             descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 
-            // Add custom comparator for date column to sort chronologically
             dateFoundColumn.setComparator((date1, date2) -> {
                 try {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     LocalDate d1 = LocalDate.parse(date1, formatter);
                     LocalDate d2 = LocalDate.parse(date2, formatter);
-                    return d2.compareTo(d1); // Reverse order: newest first
+                    return d2.compareTo(d1);
                 } catch (DateTimeParseException e) {
-                    return date1.compareTo(date2); // Fallback to alphabetical
+                    return date1.compareTo(date2);
                 }
             });
 
@@ -65,11 +69,12 @@ public class AdminController {
 
             NotificationManager.showNotification("Item approved: " + selected.getName());
 
-            // Refresh the filtered list to hide the approved item
             @SuppressWarnings("unchecked")
             FilteredList<Item> filteredList = (FilteredList<Item>) sortedPendingItems.getSource();
             filteredList.setPredicate(null);
             filteredList.setPredicate(item -> !item.isApproved());
+        } else {
+            showErrorDialog("No Selection", "Please select an item to approve.");
         }
     }
 
@@ -77,14 +82,12 @@ public class AdminController {
     public void sortByName() {
         System.out.println("AdminController: Sorting pending table by name");
         sortedPendingItems.setComparator((item1, item2) -> item1.getName().compareToIgnoreCase(item2.getName()));
-        System.out.println("AdminController: Sort pending by name completed");
     }
 
     @FXML
     public void sortByFoundBy() {
         System.out.println("AdminController: Sorting pending table by found by");
         sortedPendingItems.setComparator((item1, item2) -> item1.getFoundBy().compareToIgnoreCase(item2.getFoundBy()));
-        System.out.println("AdminController: Sort pending by found by completed");
     }
 
     @FXML
@@ -95,12 +98,38 @@ public class AdminController {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate d1 = LocalDate.parse(item1.getDate(), formatter);
                 LocalDate d2 = LocalDate.parse(item2.getDate(), formatter);
-                return d2.compareTo(d1); // Newest first
+                return d2.compareTo(d1);
             } catch (DateTimeParseException e) {
                 return item1.getDate().compareTo(item2.getDate());
             }
         });
-        System.out.println("AdminController: Sort pending by date completed");
+    }
+
+    @FXML
+    public void goHome() {
+        navigateTo("/hellofx/views/home.fxml");
+    }
+
+    @FXML
+    public void goToNotifications() {
+        System.out.println("AdminController: Notifications clicked");
+    }
+
+    @FXML
+    public void goBackToAdminHome() {
+        navigateTo("/hellofx/views/adminhome.fxml");
+    }
+
+    private void navigateTo(String fxmlPath) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
+            Stage stage = (Stage) pendingTable.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("AdminController: Failed to navigate to " + fxmlPath + ": " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     private void showErrorDialog(String title, String message) {
